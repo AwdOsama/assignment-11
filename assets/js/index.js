@@ -463,7 +463,6 @@ function displayPlanets(planets) {
     let color = planetColors[planet.englishName] || "#94a3b8";
     let badgeClass =
       typeClasses[planet.type] || "bg-slate-500/50 text-slate-200";
-    console.log(badgeClass);
 
     tbody.innerHTML += `
       <tr class="hover:bg-slate-800/30 transition-colors">
@@ -517,7 +516,6 @@ async function planets() {
   const res = await fetch(url);
   const data = await res.json();
   const planet = data.bodies;
-  console.log(planet);
   displayPlanets(planet);
   displayPlanetBtns(planet);
   const cards = document.querySelectorAll(".planet-card");
