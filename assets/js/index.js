@@ -2,6 +2,8 @@
 
 const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll(".app-section");
+const sidebar = document.getElementById("sidebar");
+const toggleBtn = document.getElementById("sidebar-toggle");
 //TodaySpace
 const imgToday = document.getElementById("apod-image");
 const decToday = document.getElementById("apod-explanation");
@@ -18,6 +20,19 @@ const todayBtn = document.getElementById("today-apod-btn");
 const labalDate = document.querySelector(".date-input-wrapper");
 const videoToday = document.getElementById("apod-video");
 //////////////////////////////////////////////////////////////////////////
+toggleBtn.addEventListener("click", function (e) {
+  e.stopPropagation();
+  sidebar.classList.add("show");
+});
+document.body.addEventListener("click", function () {
+  if (sidebar.classList.contains("show")) {
+    sidebar.classList.remove("show");
+  }
+});
+sidebar.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
+///////////////////////////////////////////////////////////////////
 function showLoadingToday(msg) {
   decToday.innerText = msg;
   spanDate2.innerText = msg;
