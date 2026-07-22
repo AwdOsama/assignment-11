@@ -17,7 +17,7 @@ const loadBtn = document.getElementById("load-date-btn");
 const todayBtn = document.getElementById("today-apod-btn");
 const labalDate = document.querySelector(".date-input-wrapper");
 const videoToday = document.getElementById("apod-video");
-
+//////////////////////////////////////////////////////////////////////////
 function showLoadingToday(msg) {
   decToday.innerText = msg;
   spanDate2.innerText = msg;
@@ -29,7 +29,7 @@ function showLoadingToday(msg) {
   imgToday.classList.add("hidden");
   videoToday.classList.add("hidden");
 }
-
+///////////////////////////////////////////////////////////////////
 async function getTodaySpace(date = "") {
   showLoadingToday("Loading...");
 
@@ -86,7 +86,7 @@ async function getTodaySpace(date = "") {
   }
 }
 getTodaySpace();
-
+////////////////////////////////////////////////////////////
 fullBtn.addEventListener("click", function () {
   if (!imgToday.classList.contains("hidden")) {
     window.open(imgToday.src, "_blank");
@@ -94,13 +94,16 @@ fullBtn.addEventListener("click", function () {
     window.open(videoToday.src, "_blank");
   }
 });
+///////////////////////////////////////////////////////////
 loadBtn.addEventListener("click", function () {
   const selectedDate = dateInput.value;
   getTodaySpace(selectedDate);
 });
+///////////////////////////////////////////////////////////////////
 todayBtn.addEventListener("click", function () {
   getTodaySpace();
 });
+////////////////////////////////////////////////////////////////////////
 dateInput.addEventListener("input", function () {
   labalDate.dataset.date = dateInput.value;
 });
@@ -126,7 +129,7 @@ const launchCardPlaceholder = document.getElementById(
 let launchList = [];
 
 const launchGrid = document.getElementById("launches-grid");
-
+///////////////////////////////////////////////////////////////////////////
 for (let i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener("click", function () {
     for (let j = 0; j < sections.length; j++) {
@@ -141,6 +144,7 @@ for (let i = 0; i < navLinks.length; i++) {
     navLinks[i].classList.add("active");
   });
 }
+/////////////////////////////////////////////////////////////////////////////////////
 async function launches() {
   const url = `https://lldev.thespacedevs.com/2.3.0/launches/upcoming/?limit=10`;
 
@@ -182,12 +186,14 @@ async function launches() {
     placeHolder.classList.remove("hidden");
   }
 }
-
+/////////////////////////////////////////////////////////////////////////////
 async function call() {
   await launches();
   displayLaunches();
 }
+///////////////////////////////
 call();
+/////////////////////////////////////////////////////////
 function displayLaunches() {
   let cartona = "";
 
